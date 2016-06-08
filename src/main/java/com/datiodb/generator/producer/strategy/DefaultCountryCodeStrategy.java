@@ -2,9 +2,9 @@ package com.datiodb.generator.producer.strategy;
 
 import java.security.SecureRandom;
 
-public class DefaultCountryStrategy implements DataProducerStrategy<String> {
+public class DefaultCountryCodeStrategy implements DataProducerStrategy<String> {
 	
-	private static final String[] COUNTRIES=new String[]{"USA","FRANCE","GERMANY","SPAIN","ITALY"};
+	private static final String[] COUNTRIES=new String[]{"854","124","208","250","428"};
 
 	@Override
 	public String create() {

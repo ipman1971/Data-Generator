@@ -3,14 +3,14 @@ package com.datiodb.generator.producer.strategy;
 import java.security.SecureRandom;
 import java.util.List;
 
-import com.datiodb.generator.from.AbstractDataFromFile;
+import com.datiodb.generator.source.AbstractSourceFromFile;
 
-public class CountryStrategyFromFile extends AbstractDataFromFile implements DataProducerStrategy<String> {
+public class CountryCodeStrategyFromFile extends AbstractSourceFromFile implements DataProducerStrategy<String> {
 	
 	private List<String> countriesList;
 
 	@SuppressWarnings("unchecked")
-	public CountryStrategyFromFile(String pathToFile) {
+	public CountryCodeStrategyFromFile(String pathToFile) {
 		super(pathToFile);
 		countriesList=(List<String>) this.getOptionList();
 	}

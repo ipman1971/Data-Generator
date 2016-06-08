@@ -9,7 +9,7 @@ public class DefaultCountryStrategyTest {
 
 	@Test
 	public void testCreate() {
-		DataProducerStrategy<?> strategy=new DefaultCountryStrategy();
+		DataProducerStrategy<?> strategy=new DefaultCountryCodeStrategy();
 		assertThat(strategy,is(notNullValue()));
 		for(int i=0;i<100;i++)
 			System.out.println("PAIS: "+strategy.create());

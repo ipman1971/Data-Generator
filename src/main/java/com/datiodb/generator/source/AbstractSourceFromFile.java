@@ -1,4 +1,4 @@
-package com.datiodb.generator.from;
+package com.datiodb.generator.source;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -8,11 +8,11 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
-public class AbstractDataFromFile implements DataFrom {
+public class AbstractSourceFromFile implements SourceFrom {
 	
 	private String pathToFile;
 	
-	public AbstractDataFromFile(String pathToFile) {
+	public AbstractSourceFromFile(String pathToFile) {
 		this.pathToFile=pathToFile;
 	}
 	

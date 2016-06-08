@@ -11,13 +11,13 @@ public class CountryStrategyFromFileTest {
 
 	@Test
 	public void testCountryStrategyFromFile() {
-		DataProducerStrategy<?> strategy=new CountryStrategyFromFile("countries.dat");
+		DataProducerStrategy<?> strategy=new CountryCodeStrategyFromFile("countries.dat");
 		assertThat(strategy,is(notNullValue()));
 	}
 
 	@Test
 	public void testCreate() {
-		DataProducerStrategy<?> strategy=new CountryStrategyFromFile("countries.dat");
+		DataProducerStrategy<?> strategy=new CountryCodeStrategyFromFile("countries.dat");
 		assertThat(strategy,is(notNullValue()));
 		for(int i=0;i<100;i++)
 			System.out.println("PAIS: "+strategy.create());

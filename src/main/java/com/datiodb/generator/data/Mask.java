@@ -1,4 +1,4 @@
-package com.datiodb.generator.field;
+package com.datiodb.generator.data;
 
 public interface Mask<T> {
 

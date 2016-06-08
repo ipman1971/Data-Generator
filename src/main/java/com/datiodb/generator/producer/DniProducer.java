@@ -1,7 +1,8 @@
 package com.datiodb.generator.producer;
 
-import com.datiodb.generator.field.AbstractField;
-import com.datiodb.generator.field.TextFieldBase;
+import com.datiodb.generator.data.AbstractData;
+import com.datiodb.generator.data.Length;
+import com.datiodb.generator.data.TextAbstractBase;
 import com.datiodb.generator.producer.strategy.DataProducerStrategy;
 
 public class DniProducer implements DataProducer {
@@ -9,21 +10,24 @@ public class DniProducer implements DataProducer {
 	private DataProducerStrategy<?> strategy;
 
 	@Override
-	public void setStrategy(DataProducerStrategy<?> strategy) {
+	public DataProducer setStrategy(DataProducerStrategy<?> strategy) {
 		this.strategy=strategy;
+		return this;
 	}
 
 	@Override
-	public AbstractField createData() {
-		return new DniField();
+	public AbstractData createData() {
+		return new DniField(10);
 	}
 	
-	private class DniField extends TextFieldBase {
+	private class DniField extends TextAbstractBase implements Length {
 		
 		private static final String MASK="########-#";
+		private int length;
 		
-		public DniField() {
-			super(9);
+		public DniField(int length) {
+			super("DNI");
+			this.length=length;
 		}
 
 		@Override
@@ -46,6 +50,16 @@ public class DniProducer implements DataProducer {
 				}
 			}
 			return buffer.toString();
+		}
+
+		@Override
+		public int getLength() {
+			return this.length;
+		}
+
+		@Override
+		public void setLength(int length) {
+			this.length=length;
 		}
 		
 	}

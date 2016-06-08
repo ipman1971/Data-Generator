@@ -5,7 +5,7 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
 
-import com.datiodb.generator.field.AbstractField;
+import com.datiodb.generator.data.AbstractData;
 import com.datiodb.generator.producer.DataProducer;
 import com.datiodb.generator.producer.DniProducer;
 import com.datiodb.generator.producer.strategy.DefaultDniStrategy;
@@ -25,10 +25,9 @@ public class DniProducerTest {
 		assertThat(producer,is(notNullValue()));
 		producer.setStrategy(new DefaultDniStrategy());
 		for(int i=0;i<100;i++) {
-			AbstractField field=producer.createData();
-			System.out.println("DNI:" + field.getGenerateValue().toString());		
+			AbstractData field=producer.createData();
+			System.out.println(field.getName()+ ": " + field.getGenerateValue().toString());		
 			assertThat(field,is(notNullValue()));
-			assertThat(field.getLength(),is(9));
 			assertThat(field.getGenerateValue(),is(instanceOf(String.class)));
 		}
 	}
