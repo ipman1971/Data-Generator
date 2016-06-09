@@ -4,10 +4,15 @@ import com.datiodb.generator.data.AbstractData;
 import com.datiodb.generator.data.Length;
 import com.datiodb.generator.data.TextAbstractBase;
 import com.datiodb.generator.producer.strategy.DataProducerStrategy;
+import com.datiodb.generator.producer.strategy.DefaultDniStrategy;
 
 public class DniProducer implements DataProducer {
 	
 	private DataProducerStrategy<?> strategy;
+	
+	public DniProducer() {
+		this.strategy=new DefaultDniStrategy();
+	}
 
 	@Override
 	public DataProducer setStrategy(DataProducerStrategy<?> strategy) {
