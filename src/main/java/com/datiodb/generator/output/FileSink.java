@@ -11,6 +11,22 @@ public class FileSink implements Sink, SinkIO {
 	
 	private FileSink() {}
 	
+	public String getPath() {
+		return path;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public String getSeparator() {
+		return separator;
+	}
+
+	public int getBufferSize() {
+		return bufferSize;
+	}
+
 	public static Filename path(String path) {
 		return new FileSink.Builder();
 	}
@@ -25,7 +41,7 @@ public class FileSink implements Sink, SinkIO {
 	
 	public interface Optionals extends Creator {
 		public Optionals withSeparator(String separator);
-		public Optionals bufferSize();
+		public Optionals bufferSize(int size);
 	}
 	
 	@Override
@@ -52,26 +68,25 @@ public class FileSink implements Sink, SinkIO {
 
 		@Override
 		public FileSink create() {
-			// TODO Auto-generated method stub
-			return null;
+			return instance;
 		}
 
 		@Override
 		public Optionals withSeparator(String separator) {
-			// TODO Auto-generated method stub
-			return null;
+			instance.separator=separator;
+			return this;
 		}
 
 		@Override
-		public Optionals bufferSize() {
-			// TODO Auto-generated method stub
-			return null;
+		public Optionals bufferSize(int size) {
+			instance.bufferSize=size;
+			return this;
 		}
 
 		@Override
 		public Optionals filename(String filename) {
-			// TODO Auto-generated method stub
-			return null;
+			instance.filename=filename;
+			return this;
 		}
 
 	}
