@@ -1,8 +1,22 @@
+/*
+ * Copyright (C) 2016 DatioBD 
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.datiodb.generator.producer;
 
 import com.datiodb.generator.data.AbstractData;
 import com.datiodb.generator.data.Length;
-import com.datiodb.generator.data.TextAbstractBase;
+import com.datiodb.generator.data.StringAbstractBase;
 import com.datiodb.generator.producer.strategy.DataProducerStrategy;
 import com.datiodb.generator.producer.strategy.DefaultDniStrategy;
 
@@ -25,7 +39,7 @@ public class DniProducer implements DataProducer {
 		return new DniField(10);
 	}
 	
-	private class DniField extends TextAbstractBase implements Length {
+	private class DniField extends StringAbstractBase implements Length {
 		
 		private static final String MASK="########-#";
 		private int length;

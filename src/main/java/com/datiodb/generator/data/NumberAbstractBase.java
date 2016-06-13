@@ -12,10 +12,25 @@
  * the License.
  */
 
-package com.datiodb.generator.producer.strategy;
+package com.datiodb.generator.data;
 
-public interface DataProducerStrategy<T> {
+import java.text.DecimalFormat;
+
+import static com.google.common.base.Preconditions.*;
+
+public abstract class NumberAbstractBase extends AbstractData implements Mask<Double,DecimalFormat> {
 	
-	public T create();
+	protected static final String DEFAULT_MASK=".##";
+
+	public NumberAbstractBase(String name) {
+		super(name);
+	}
+
+	@Override
+	public String apply(Double value, DecimalFormat mask) {
+		checkNotNull(value,"numeric value can't be null reference");
+		checkNotNull(mask,"mask can't be null reference");
+		return mask.format(value);
+	}
 
 }

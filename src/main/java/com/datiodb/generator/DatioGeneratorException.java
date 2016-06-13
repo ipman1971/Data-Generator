@@ -12,10 +12,22 @@
  * the License.
  */
 
-package com.datiodb.generator.producer.strategy;
+package com.datiodb.generator;
 
-public interface DataProducerStrategy<T> {
-	
-	public T create();
+public class DatioGeneratorException extends RuntimeException {
+
+	private static final long serialVersionUID = 6965243672362204197L;
+
+	public DatioGeneratorException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public DatioGeneratorException(String message) {
+		super(message);
+	}
+
+	public DatioGeneratorException(Throwable cause) {
+		super(cause);
+	}
 
 }

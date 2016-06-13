@@ -12,10 +12,17 @@
  * the License.
  */
 
-package com.datiodb.generator.producer.strategy;
+package com.datiodb.generator.data;
 
-public interface DataProducerStrategy<T> {
+public abstract class StringAbstractBase extends AbstractData implements Mask<String,String> {
 	
-	public T create();
+	public StringAbstractBase(String name) {
+		super(name);
+	}
+
+	@Override
+	public String apply(String value,String mask) {
+		return value;
+	}
 
 }

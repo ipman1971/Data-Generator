@@ -12,27 +12,39 @@
  * the License.
  */
 
-package com.datiodb.generator.output;
+package com.datiodb.generator;
 
+import com.datiodb.generator.output.Sink;
 import com.datiodb.generator.producer.Tuple;
 
-public class ConsoleSink implements Sink {
-
-	@Override
-	public void process(Tuple tuple) {
-		System.out.println(tuple.toString());
+public class DatioGenerator implements Executor {
+	
+	private static final String ID="DATIO-GEN";
+	
+	protected GenConfig config;
+	protected String id;
+	
+	public DatioGenerator(String id) {
+		this.id=id;
+	}
+	
+	public DatioGenerator() {
+		this(ID);
 	}
 
 	@Override
-	public void begin() {
-		// TODO Auto-generated method stub
-		
+	public void setConfiguration(GenConfig config) {
+		this.config=config;
 	}
 
 	@Override
-	public void end() {
-		// TODO Auto-generated method stub
-		
+	public void run() {
+		Sink sink=config.getOutput();
+		sink.begin();
+		for(int i=0;i<config.getNumberOfTuples();i++) {
+			 sink.process(new Tuple(config.getProducers()));
+		}
+		sink.end();
 	}
 
 }

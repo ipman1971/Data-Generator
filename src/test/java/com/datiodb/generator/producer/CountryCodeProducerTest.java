@@ -1,3 +1,17 @@
+/*
+ * Copyright (C) 2016 DatioBD 
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.datiodb.generator.producer;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -32,12 +46,9 @@ public class CountryCodeProducerTest {
 		DataProducer producer=new CountryCodeProducer();
 		assertThat(producer,is(notNullValue()));
 		producer.setStrategy(new DefaultCountryCodeStrategy());
-		for(int i=0;i<100;i++) {
-			AbstractData field=producer.createData();
-			System.out.println(field.getName()+ ": " + field.getGenerateValue().toString());		
-			assertThat(field,is(notNullValue()));
-			assertThat(field.getGenerateValue(),is(instanceOf(String.class)));
-		}
+		AbstractData field=producer.createData();
+		assertThat(field,is(notNullValue()));
+		assertThat(field.getGenerateValue(),is(instanceOf(String.class)));
 	}
 	
 	@Test
@@ -45,12 +56,9 @@ public class CountryCodeProducerTest {
 		DataProducer producer=new CountryCodeProducer();
 		assertThat(producer,is(notNullValue()));
 		producer.setStrategy(new CountryCodeStrategyFromFile(FILE_DAT));
-		for(int i=0;i<100;i++) {
-			AbstractData field=producer.createData();
-			System.out.println(field.getName()+ ": " + field.getGenerateValue().toString());		
-			assertThat(field,is(notNullValue()));
-			assertThat(field.getGenerateValue(),is(instanceOf(String.class)));
-		}
+		AbstractData field=producer.createData();
+		assertThat(field,is(notNullValue()));
+		assertThat(field.getGenerateValue(),is(instanceOf(String.class)));
 	}
 
 }
