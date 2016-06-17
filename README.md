@@ -5,7 +5,7 @@ Según la Real Academia de la Lengua, en su definicion de la palabra **"sintéti
 
  >  ***"dicho de un producto: Que se obtiene por procedimientos industriales y que reproduce la composición y propiedades de uno natural***. 
 
-**SyntheticDatioGenerator** pretende resolver un problema bastante habitual en el trabajo con tecnologias Big Data, aunque su utilidad no esta limitada a este ambito. La librería debería ser capaz de la generar fuentes de datos sinteticas necesarias en multitud de proyectos donde por diferentes motivos no se puede disponer de fuentes de datos ***"naturales"***
+**SyntheticDataGenerator** pretende resolver un problema bastante habitual en el trabajo con tecnologias Big Data, aunque su utilidad no esta limitada a este ambito. La librería debería ser capaz de la generar fuentes de datos sinteticas necesarias en multitud de proyectos donde por diferentes motivos no se puede disponer de fuentes de datos ***"naturales"***
 
 Entendemos como ***"natural"*** a la fuente de datos con la que la aplicacion debera trabajar en un entorno de producción, siendo esta librería la encargada de crear fuentes de datos que se ajusten a diversas necesidades en cuanto a sus caracteristicas como son: el origen del dato, su formato, volumetria, forma de calculo o de generacion, etc.
 
