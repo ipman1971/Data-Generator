@@ -30,7 +30,18 @@ public abstract class NumberAbstractBase extends AbstractData implements Mask<Do
 	public String apply(Double value, DecimalFormat mask) {
 		checkNotNull(value,"numeric value can't be null reference");
 		checkNotNull(mask,"mask can't be null reference");
-		return mask.format(value);
+		return mask.format(value).replaceAll("\\G0", " ");
+	}
+
+	protected String apply(Double value) {
+		checkNotNull(value,"numeric value can't be null reference");
+		return apply(value, new DecimalFormat(DEFAULT_MASK));
+	}
+
+	protected String apply(Double value, String mask) {
+		checkNotNull(value,"numeric value can't be null reference");
+		checkNotNull(mask,"mask can't be null reference");
+		return apply(value, new DecimalFormat(mask));
 	}
 
 }

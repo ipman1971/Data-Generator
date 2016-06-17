@@ -16,6 +16,8 @@ package com.datiodb.sd.generator;
 
 import static org.junit.Assert.*;
 
+import com.datiodb.sd.producer.AmountProducer;
+import com.datiodb.sd.producer.strategy.DefaultAmountStrategy;
 import org.junit.Test;
 
 import com.datiodb.sd.generator.SyntheticDataGenerator;
@@ -32,9 +34,10 @@ public class SyntheticDataGeneratorTest {
 	public void testRun() {
 		SyntheticDataGeneratorConfig config=SyntheticDataGeneratorConfig.name("TEST-GENERATOR")
 				.with(new DniProducer())
+				.with(new AmountProducer(5,2).setStrategy(new DefaultAmountStrategy(5,2)))
 				.with(new CountryCodeProducer().setStrategy(new CountryCodeStrategyFromFile(FILE_DAT)))
-				.output(FileSink.path("/tmp").filename("test.out").withSeparator(";").bufferSize(1024*16).create())
-				.items(100000)
+				.output(FileSink.path("/tmp").filename("dataflow-test.dat").withSeparator(";").bufferSize(1024*16).create())
+				.items(1000)
 				.create();
 		
 		SyntheticDataGenerator executor=new SyntheticDataGenerator();
