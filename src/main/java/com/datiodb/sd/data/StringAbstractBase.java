@@ -17,8 +17,8 @@ package com.datiodb.sd.data;
 public abstract class StringAbstractBase extends AbstractData implements Mask<String,String> {
 	
 	public StringAbstractBase(String name) {
-		super(name);
-	}
+        super(name);
+    }
 
 	@Override
 	public String apply(String value,String mask) {

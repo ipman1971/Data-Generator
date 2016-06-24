@@ -53,9 +53,11 @@ public class AmountProducer implements DataProducer {
       for(int i=0;i<length;i++) {
         buffer.append("0");
       }
-      buffer.append(".");
-      for(int i=0;i<decimalLength;i++) {
-        buffer.append("0");
+        if (decimalLength != 0) {
+            buffer.append(".");
+            for (int i = 0; i < decimalLength; i++) {
+                buffer.append("0");
+            }
       }
       return buffer.toString();
     }

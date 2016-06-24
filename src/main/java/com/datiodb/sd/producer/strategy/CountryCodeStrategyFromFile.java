@@ -14,16 +14,15 @@
 
 package com.datiodb.sd.producer.strategy;
 
+import com.datiodb.sd.input.AbstractSourceFromFile;
+
 import java.security.SecureRandom;
 import java.util.List;
-
-import com.datiodb.sd.input.AbstractSourceFromFile;
 
 public class CountryCodeStrategyFromFile extends AbstractSourceFromFile implements DataProducerStrategy<String> {
 	
 	private List<String> countriesList;
 
-	@SuppressWarnings("unchecked")
 	public CountryCodeStrategyFromFile(String pathToFile) {
 		super(pathToFile);
 		countriesList=(List<String>) this.getOptionList();

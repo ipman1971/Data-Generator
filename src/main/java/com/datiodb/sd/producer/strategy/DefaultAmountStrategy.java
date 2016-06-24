@@ -1,6 +1,6 @@
 package com.datiodb.sd.producer.strategy;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 /**
  * Created by jcorredera on 17/06/16 - 10:27 - 14:16.
@@ -10,12 +10,12 @@ public class DefaultAmountStrategy implements DataProducerStrategy<Double> {
   private static final int DEFAULT_LENGTH=3;
   private static final int DEFAULT_DECIMAL_LENGTH=2;
 
-  private final Random r;
+    private final SecureRandom r;
   private final int length;
   private final int decimalLength;
 
   public DefaultAmountStrategy(int length, int decimalLength) {
-    r = new Random();
+      r = new SecureRandom();
     this.length=length;
     this.decimalLength=decimalLength;
   }

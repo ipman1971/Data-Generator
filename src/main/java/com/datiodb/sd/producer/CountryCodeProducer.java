@@ -30,15 +30,14 @@ public class CountryCodeProducer implements DataProducer {
 
 	@Override
 	public AbstractData createData() {
-		// TODO Auto-generated method stub
 		return new CountryField("COUNTRY CODE");
 	}
 	
 	private class CountryField extends StringAbstractBase {
 
-		public CountryField(String name) {
-			super(name);
-		}
+        private CountryField(String name) {
+            super(name);
+        }
 
 		@Override
 		public String getGenerateValue() {
